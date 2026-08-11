@@ -1,0 +1,355 @@
+/* ====================================
+   RESET И БАЗОВЫЕ НАСТРОЙКИ
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    background: #0a0a0a;
+    color: #00ff41;
+    overflow: hidden;
+}
+
+/* ====================================
+   ГЛАВНЫЙ ЭКРАН (HERO)
+   ==================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, #0d1f0d 0%, #0a0a0a 70%);
+    overflow: hidden;
+}
+
+/* ====================================
+   СВЕЧЕНИЕ (GLOW)
+   ==================================== */
+.glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+/* ====================================
+   КОНТЕНТ
+   ==================================== */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* ====================================
+   СТАТУС
+   ==================================== */
+.status {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #00ff41;
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid rgba(0, 255, 65, 0.15);
+    padding: 8px 20px;
+    display: inline-block;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    animation: blinkStatus 2s step-end infinite;
+}
+
+@keyframes blinkStatus {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.status::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00ff41;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: blinkDot 1s step-end infinite;
+}
+
+@keyframes blinkDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ====================================
+   ЗАГОЛОВОК
+   ==================================== */
+h1 {
+    font-size: clamp(48px, 12vw, 80px);
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: #00ff41;
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+h1 span {
+    color: #006b1e;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+    font-weight: 300;
+}
+
+/* ====================================
+   ПОДЗАГОЛОВОК
+   ==================================== */
+.subtitle {
+    font-size: clamp(14px, 2vw, 20px);
+    color: #00cc33;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+/* ====================================
+   КНОПКИ
+   ==================================== */
+#startButton {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 18px 50px;
+    background: transparent;
+    color: #00ff41;
+    border: 2px solid #00ff41;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#startButton:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    transform: scale(1.02);
+}
+
+#startButton:active {
+    transform: scale(0.98);
+}
+
+#startButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Эффект сканирования кнопки */
+#startButton::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    background-size: 200% 200%;
+    animation: scanButton 3s linear infinite;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+@keyframes scanButton {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ВТОРИЧНАЯ КНОПКА (БИОГРАФИЯ) */
+.secondary-button {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(12px, 1.2vw, 16px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 12px 35px;
+    background: transparent;
+    color: #006b1e;
+    border: 1px solid #006b1e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.secondary-button:hover {
+    background: rgba(0, 107, 30, 0.1);
+    box-shadow: 0 0 20px rgba(0, 107, 30, 0.1);
+    transform: scale(1.02);
+    color: #00ff41;
+    border-color: #00ff41;
+}
+
+.secondary-button:active {
+    transform: scale(0.98);
+}
+
+/* ====================================
+   ПРЕДУПРЕЖДЕНИЕ
+   ==================================== */
+.warning {
+    font-size: 11px;
+    color: #006b1e;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-top: 20px;
+}
+
+/* ====================================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
+   ==================================== */
+@media (max-width: 600px) {
+    .status {
+        font-size: 10px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+    }
+
+    #startButton {
+        padding: 15px 35px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .secondary-button {
+        padding: 10px 25px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .warning {
+        font-size: 10px;
+    }
+}
+
+/* ====================================
+   ДОПОЛНИТЕЛЬНО: ЭФФЕКТ ПИКСЕЛЬНОЙ СЕТКИ
+   ==================================== */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 1;
+}
+/* ====================================
+   ФОТО БАГИРЫ
+   ==================================== */
+.bio-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #00ff41;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.bio-avatar:hover {
+    border-color: #ff6b00;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    transform: scale(1.05);
+}
+
+/* Адаптация для телефона */
+@media (max-width: 600px) {
+    .bio-avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
+/* ====================================
+   ФИНАЛЬНЫЙ ЭКРАН — ТИГРЫ
+   ==================================== */
+.final-tiger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0 35px 0;
+    padding: 15px 25px;
+    background: rgba(0, 255, 65, 0.03);
+    border: 1px solid rgba(0, 255, 65, 0.1);
+    border-radius: 12px;
+}
+
+.final-tiger-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    border: 2px solid #00ff41;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.final-tiger-text {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: #00ff41;
+    text-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+    .final-tiger {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+    
+    .final-tiger-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .final-tiger-text {
+        font-size: clamp(24px, 8vw, 36px);
+        letter-spacing: 4px;
+    }
+}
