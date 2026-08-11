@@ -543,6 +543,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="dangerButton" id="dangerButton">
                 Нажми если ты пиво или негр
             </button>
+
+            <button class="homeButton" id="homeButton">
+     НА ГЛАВНУЮ
+</button>
         </div>
     `;
     
@@ -564,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.hero').style.animation = 'shake 0.5s ease';
         createConfetti();
         
+        
         this.textContent = 'ВТФААА, ПЕПЕ ';
         this.style.background = 'rgba(0, 255, 65, 0.2)';
         this.style.borderColor = '#00ff41';
@@ -584,6 +589,13 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.hero').style.animation = '';
         }, 2000);
     });
+
+    document.getElementById('homeButton').addEventListener('click', function() {
+    location.reload();  // Просто перезагружает страницу на главный экран
+
+    
+});
+    
 }
     // ====================================
     // КОНФЕТТИ
