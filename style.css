@@ -278,8 +278,9 @@ h1 span {
     pointer-events: none;
     z-index: 1;
 }
+
 /* ====================================
-   ФОТО БАГИРЫ
+   ФОТО БАГИРЫ (биография)
    ==================================== */
 .bio-avatar {
     width: 120px;
@@ -296,13 +297,13 @@ h1 span {
     transform: scale(1.05);
 }
 
-/* Адаптация для телефона */
 @media (max-width: 600px) {
     .bio-avatar {
         width: 100px;
         height: 100px;
     }
 }
+
 /* ====================================
    ФИНАЛЬНЫЙ ЭКРАН — ТИГРЫ
    ==================================== */
@@ -351,5 +352,124 @@ h1 span {
     .final-tiger-text {
         font-size: clamp(24px, 8vw, 36px);
         letter-spacing: 4px;
+    }
+}
+
+/* ====================================
+   ДОПОЛНИТЕЛЬНЫЕ ИСПРАВЛЕНИЯ
+   ==================================== */
+
+/* 1. КНОПКА "НА ГЛАВНУЮ" */
+.homeButton {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 15px 40px;
+    background: transparent;
+    color: #006b1e;
+    border: 1px solid #006b1e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.homeButton:hover {
+    background: rgba(0, 107, 30, 0.1);
+    color: #00ff41;
+    border-color: #00ff41;
+}
+
+/* 2. СКРОЛЛ ДЛЯ РАССЛЕДОВАНИЯ, БИОГРАФИИ И ФИНАЛА */
+.investigation {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px 20px 40px 20px;
+}
+
+.investigation::-webkit-scrollbar {
+    width: 4px;
+}
+
+.investigation::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.investigation::-webkit-scrollbar-thumb {
+    background: #00ff41;
+    border-radius: 2px;
+}
+
+.biography {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px 20px 40px 20px;
+}
+
+.biography::-webkit-scrollbar {
+    width: 4px;
+}
+
+.biography::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.biography::-webkit-scrollbar-thumb {
+    background: #00ff41;
+    border-radius: 2px;
+}
+
+.final {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px 20px 40px 20px;
+}
+
+.final::-webkit-scrollbar {
+    width: 4px;
+}
+
+.final::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.final::-webkit-scrollbar-thumb {
+    background: #00ff41;
+    border-radius: 2px;
+}
+
+/* 3. ФИКС ДЛЯ БИОГРАФИИ — ЧТОБЫ ВЕРХ НЕ ОБРЕЗАЛО */
+.bio-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 10px 0 30px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+    flex-shrink: 0;
+}
+
+/* 4. НАСТРОЙКА ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 600px) {
+    .investigation,
+    .biography,
+    .final {
+        max-height: 90vh;
+        padding: 15px 15px 30px 15px;
+    }
+    
+    .biography {
+        padding-top: 20px;
+    }
+}
+
+/* 5. ДЛЯ НОУТБУКА — БОЛЬШЕ ОТСТУП СВЕРХУ */
+@media (min-width: 601px) {
+    .biography {
+        padding-top: 50px;
+        max-height: 80vh;
     }
 }
