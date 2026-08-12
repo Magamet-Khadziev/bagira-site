@@ -162,13 +162,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="evidence">
                     <p class="evidence-text">
                         «Ест шашлык так аппетитно,<br>
-                       будто это мясно НЕГРА.»
+                       будто это мясо НЕГРА.»
                     </p>
                 </div>
                 
                 <div class="witness">
                     <span class="witness-label">СВИДЕТЕЛЬ:</span>
-                    <span class="witness-text">«Багира сказала, что будет спокойно»</span>
+                    <span class="witness-text">«Багира сказала, женщина без усов - как мужчина без трусов»</span>
                 </div>
                 
                 <div class="timer">
@@ -356,6 +356,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="progress-fill" style="width: 53%"></div>
                         </div>
                     </div>
+                    <div class="humor-box">
+                        <div class="humor-icon">🤖</div>
+                        <div class="humor-text">
+                            <span class="percent">67%</span> Длина усов — приемлемо
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 67%"></div>
+                        </div>
+                    </div>
                     
                     <div class="humor-box warning-box">
                         <div class="humor-icon">⚠️</div>
@@ -521,6 +530,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="final-text">
                     Вы дошли до конца.
                 </p>
+                 <p class="final-text">
+                    Укладка усов 150р.
+                </p>
                 <p class="final-text">
                     Теперь вы знаете слишком много.
                 </p>
@@ -593,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('homeButton').addEventListener('click', function() {
     location.reload();  // Просто перезагружает страницу на главный экран
 
-    
+
 });
     
 }
